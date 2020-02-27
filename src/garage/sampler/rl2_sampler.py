@@ -161,7 +161,7 @@ class RL2Sampler(BaseSampler):
 
             n_samples = 0
             obses = self._vec_env.reset()
-            dones = np.asarray([True] * self._vec_env.num_envs)
+            terminals = np.asarray([True] * self._vec_env.num_envs)
             running_paths = [None] * self._vec_env.num_envs
 
             pbar = ProgBarCounter(batch_size)
@@ -171,7 +171,7 @@ class RL2Sampler(BaseSampler):
 
             policy = self.algo.policy
             # Only reset policies at the beginning of a meta batch
-            policy.reset(dones)
+            policy.reset(terminals)
 
             while n_samples < batch_size_per_loop:
                 t = time.time()
