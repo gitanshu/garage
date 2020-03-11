@@ -3,7 +3,7 @@ import pytest
 import ray
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='function')
 def ray_local_test_fixture():
     """Initializes Ray and shuts down Ray in local mode.
 
@@ -22,7 +22,7 @@ def ray_local_test_fixture():
         ray.shutdown()
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='function')
 def ray_test_fixture():
     """Initializes Ray and shuts down Ray.
 
