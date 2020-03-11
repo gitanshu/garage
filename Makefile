@@ -45,7 +45,7 @@ ci-verify-conda: CONDA_ROOT := $$HOME/miniconda
 ci-verify-conda: CONDA := $(CONDA_ROOT)/bin/conda
 ci-verify-conda: GARAGE_BIN = $(CONDA_ROOT)/envs/garage-ci/bin
 ci-verify-conda:
-	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+	wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -O miniconda.sh
 	bash miniconda.sh -b -p $(CONDA_ROOT)
 	hash -r
 	$(CONDA) config --set always_yes yes --set changeps1 no
